@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+  <title>FAKE NEWS DETECTOR</title>
+
+  <style>
+    body{
+    		background-color: lightblue;
+    		overflow: hidden;
+    	}
+    	.header
+      {
+        background-color: black;
+        color: white;
+        padding-top: 22px;
+        padding-left: 13px;
+        width: 650px;
+        height: 110px;
+        opacity: 0.7;
+      }
+       </style>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- <script>
+   $(document).ready(function () {
+      $('#btn').click(function () {
+        $('.wizard').toggle();
+      });
+    });
+  </script>  -->
+</head>
+
+<body><br><br>
+  <center>
+    <div class="header">
+      <h1 style="font-size:56px; text-align: center;">FAKE NEWS DETECTOR</h1>
+    </div>
+  </center>
+  <br>
+  <form action="{{ url_for ('predict') }}" method="post" onsubmit="return true">
+    <label for="textarea1" style="margin-left: 10%;">
+      <h2>Paste the text here</h2>
+    </label><br>
+
+
+    <textarea id="textarea1" name="textarea1" rows="15" cols="120" style="margin-left: 10%;"></textarea>
+    <b>
+      <p style="margin-left: 28%;">want to try on random news text?<a href="#">
+          Click here
+        </a></p>
+    </b>
+
+    <br><br>
+
+    <button type="submit" class="btn btn-primary" id="btn" name="predictbtn" style="margin-left:78.5%; margin-top:-43%;"><b>Predict</b></button>
+
+    <div class="wizard">
+      <h3 style="color: white; margin-left: 77.5%; margin-top: -18%; width: 245px; background-color: #ADD8E6;"> {{ prediction_text }} </h3>
+    </div>
+  </form>
+</body>
+</html>
